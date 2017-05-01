@@ -34,15 +34,14 @@ class SongListViewModel: NSObject {
     private func loadSongsSignalProducer(observer: Observer<Void, NoError>?) -> SignalProducer<Void, NSError> {
         let loadSongsSignalProducer = ViewModelManager.shared
             .loadNewData()
-            .on(
-                starting: { [weak self] in
-                    self?.isLoading.value = true
-                }, failed: { (error) in
-                    print(error)
-                }, completed: { [weak self] in
-                    self?.isLoading.value = false
-                    observer?.sendCompleted()
-                })
+            .on(starting: { [weak self] in
+                self?.isLoading.value = true
+            }, failed: { (error) in
+                print(error)
+            }, terminated: { [weak self] in
+                self?.isLoading.value = false
+                observer?.sendCompleted()
+            })
         return loadSongsSignalProducer
     }
     
