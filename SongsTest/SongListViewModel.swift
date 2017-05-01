@@ -22,25 +22,28 @@ class SongListViewModel: NSObject {
         let enabled = isLoading.negate()
         return Action<Void, Void, NoError>(enabledIf: enabled) { _ in
             return SignalProducer<Void, NoError> { [weak self] observer, _ in
-                self?.loadData()
-                observer.sendCompleted()
+                _ = self?.loadSongsSignalProducer(observer: observer).start()
             }
         }
     }
     
     func loadData() {
+        _ = loadSongsSignalProducer(observer: nil).start()
+    }
+    
+    private func loadSongsSignalProducer(observer: Observer<Void, NoError>?) -> SignalProducer<Void, NSError> {
         let loadSongsSignalProducer = ViewModelManager.shared
             .loadNewData()
             .on(
-            starting: { [weak self] in
-                self?.isLoading.value = true
-            }, failed: { (error) in
-                print(error)
-            })
-        
-        loadSongsSignalProducer.startWithCompleted { [weak self] in
-            self?.isLoading.value = false
-        }
+                starting: { [weak self] in
+                    self?.isLoading.value = true
+                }, failed: { (error) in
+                    print(error)
+                }, completed: { [weak self] in
+                    self?.isLoading.value = false
+                    observer?.sendCompleted()
+                })
+        return loadSongsSignalProducer
     }
     
     //MARK: - Data base
