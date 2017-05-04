@@ -1,27 +1,18 @@
 PODS:
   - Alamofire (4.4.0)
   - JSQDataSourcesKit (6.0.0)
-  - ReactiveCocoa (5.0.3):
-    - ReactiveSwift (~> 1.1)
-  - ReactiveSwift (1.1.1):
-    - Result (~> 3.2)
-  - Result (3.2.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - JSQDataSourcesKit
-  - ReactiveCocoa (~> 5.0.0)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   JSQDataSourcesKit: 20cda71984408006b4c3e0cf224343fd1a913d58
-  ReactiveCocoa: 066a855f613fb72f68258771095805fdb10312d2
-  ReactiveSwift: 2489549e3231a6ff68ec99f3d320bb264f10ba0a
-  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 4e5c53ac3a70a0038c81a99cc367762144134f1b
+PODFILE CHECKSUM: c6fca05d1b05970887f546b5c8e1a89c99455bb0
 
 COCOAPODS: 1.2.1

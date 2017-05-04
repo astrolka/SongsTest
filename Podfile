@@ -5,6 +5,6 @@ use_frameworks!
 target 'SongsTest' do
 	pod 'JSQDataSourcesKit'
 	pod 'SwiftyJSON'
-	pod 'ReactiveCocoa', '~> 5.0.0'
+	
 	pod 'Alamofire', '~> 4.4'
 end

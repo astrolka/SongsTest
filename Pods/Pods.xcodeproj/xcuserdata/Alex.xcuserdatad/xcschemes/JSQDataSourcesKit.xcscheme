@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B116E85B025013E9499A4E0C07486E7D"
-               BlueprintName = "JSQDataSourcesKit"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "JSQDataSourcesKit.framework">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = 'B116E85B025013E9499A4E0C07486E7D'
+               BlueprintName = 'JSQDataSourcesKit'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'JSQDataSourcesKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
