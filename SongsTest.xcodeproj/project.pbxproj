@@ -27,9 +27,8 @@
 		FAC4198B1EB635280074E320 /* DictionaryExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4198A1EB635280074E320 /* DictionaryExtentions.swift */; };
 		FAC4198D1EB63F410074E320 /* DataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4198C1EB63F410074E320 /* DataBaseModel.swift */; };
 		FAC4198F1EB641760074E320 /* ViewModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4198E1EB641760074E320 /* ViewModelManager.swift */; };
-		FAC419D01EB660DA0074E320 /* CollectionViewReactiveExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC419CF1EB660DA0074E320 /* CollectionViewReactiveExtentions.swift */; };
-		FAC419D31EB7305C0074E320 /* UIApplicationReactiveExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC419D21EB7305C0074E320 /* UIApplicationReactiveExtensions.swift */; };
 		FAC419D81EB749960074E320 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC419D71EB749960074E320 /* Helpers.swift */; };
+		FAD1E56E1EBB9DA200091F04 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1E56D1EBB9DA200091F04 /* Dynamic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +77,8 @@
 		FAC4198A1EB635280074E320 /* DictionaryExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtentions.swift; sourceTree = "<group>"; };
 		FAC4198C1EB63F410074E320 /* DataBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseModel.swift; sourceTree = "<group>"; };
 		FAC4198E1EB641760074E320 /* ViewModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelManager.swift; sourceTree = "<group>"; };
-		FAC419CF1EB660DA0074E320 /* CollectionViewReactiveExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewReactiveExtentions.swift; sourceTree = "<group>"; };
-		FAC419D21EB7305C0074E320 /* UIApplicationReactiveExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationReactiveExtensions.swift; sourceTree = "<group>"; };
 		FAC419D71EB749960074E320 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		FAD1E56D1EBB9DA200091F04 /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +156,7 @@
 				FAC4197B1EB5DC6E0074E320 /* Views */,
 				FAC4197E1EB5DCB80074E320 /* SuportFiles */,
 				FAC4197D1EB5DC9A0074E320 /* CoreData */,
-				FAC4198A1EB635280074E320 /* DictionaryExtentions.swift */,
-				FAC419D71EB749960074E320 /* Helpers.swift */,
+				FAD1E56F1EBBA7A000091F04 /* Helpers */,
 			);
 			path = SongsTest;
 			sourceTree = "<group>";
@@ -226,7 +223,6 @@
 				FAC4197F1EB5E0C10074E320 /* SongCell.swift */,
 				FAC419401EB54BF50074E320 /* Main.storyboard */,
 				FAC4197C1EB5DC8A0074E320 /* LaunchScreen */,
-				FAC419D11EB7302A0074E320 /* UIReactiveExtensions */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -265,13 +261,14 @@
 			name = ViewModels;
 			sourceTree = "<group>";
 		};
-		FAC419D11EB7302A0074E320 /* UIReactiveExtensions */ = {
+		FAD1E56F1EBBA7A000091F04 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FAC419CF1EB660DA0074E320 /* CollectionViewReactiveExtentions.swift */,
-				FAC419D21EB7305C0074E320 /* UIApplicationReactiveExtensions.swift */,
+				FAD1E56D1EBB9DA200091F04 /* Dynamic.swift */,
+				FAC4198A1EB635280074E320 /* DictionaryExtentions.swift */,
+				FAC419D71EB749960074E320 /* Helpers.swift */,
 			);
-			name = UIReactiveExtensions;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,16 +464,15 @@
 				FAC4198F1EB641760074E320 /* ViewModelManager.swift in Sources */,
 				FAC419701EB5CEFB0074E320 /* NetworkManager.swift in Sources */,
 				FAC419891EB5FADA0074E320 /* SongListViewModel.swift in Sources */,
-				FAC419D31EB7305C0074E320 /* UIApplicationReactiveExtensions.swift in Sources */,
 				FAC419841EB5E28D0074E320 /* SongListViewController.swift in Sources */,
 				FAC419811EB5E0C10074E320 /* SongCell.swift in Sources */,
 				FAC419721EB5D4580074E320 /* SongsListServerModel.swift in Sources */,
 				FAC4193D1EB54BF50074E320 /* AppDelegate.swift in Sources */,
 				FAC419D81EB749960074E320 /* Helpers.swift in Sources */,
-				FAC419D01EB660DA0074E320 /* CollectionViewReactiveExtentions.swift in Sources */,
 				FAC419741EB5DA170074E320 /* SongServerModel.swift in Sources */,
 				FAC419451EB54BF50074E320 /* SongsTest.xcdatamodeld in Sources */,
 				FAC4198D1EB63F410074E320 /* DataBaseModel.swift in Sources */,
+				FAD1E56E1EBB9DA200091F04 /* Dynamic.swift in Sources */,
 				FAC419791EB5DBE60074E320 /* SongDataBaseModel.swift in Sources */,
 				FAC419861EB5E3210074E320 /* SongViewModel.swift in Sources */,
 			);

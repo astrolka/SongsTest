@@ -7,20 +7,18 @@
 //
 
 import UIKit
-import ReactiveSwift
-import ReactiveCocoa
 import JSQDataSourcesKit
 
 class SongListViewController: UIViewController {
     
-    fileprivate var viewModel = SongListViewModel()
+    private let viewModel = SongListViewModel()
     fileprivate let interitemSpaceing: CGFloat = 5
     
     typealias CellFactory = ViewFactory<SongDataBaseModel, SongCell>
     typealias CollectionViewDataSource = DataSourceProvider<FetchedResultsController<SongDataBaseModel>, CellFactory, CellFactory>
-    var dataSourceProvider: CollectionViewDataSource!
-    var delegateProvider: FetchedResultsDelegateProvider<CellFactory>!
-    var frc: FetchedResultsController<SongDataBaseModel>!
+    private var dataSourceProvider: CollectionViewDataSource!
+    private var delegateProvider: FetchedResultsDelegateProvider<CellFactory>!
+    private var frc: FetchedResultsController<SongDataBaseModel>!
 
     @IBOutlet private weak var collectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
@@ -35,6 +33,7 @@ class SongListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         collectionView.addSubview(refreshControl)
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
@@ -56,8 +55,12 @@ class SongListViewController: UIViewController {
     
     private func bindViewModel() {
         title = viewModel.title
-        refreshControl.reactive.refresh = CocoaAction(viewModel.refresh)
-        UIApplication.shared.reactive.isNetworkActivityIndicatorVisible <~ viewModel.isLoading
+        viewModel.isLoading.bindAndFire { [weak self] (isActivityIndicatorVisible) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = isActivityIndicatorVisible
+            if !isActivityIndicatorVisible {
+                self?.refreshControl.endRefreshing()
+            }
+        }
         viewModel.loadData()
     }
     
@@ -74,6 +77,11 @@ class SongListViewController: UIViewController {
         }
     }
     
+    //MARK: - Actions
+    
+    func refreshAction(_ sender: UIRefreshControl) {
+        viewModel.loadData()
+    }
     
 }
 

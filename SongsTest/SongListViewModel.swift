@@ -7,44 +7,23 @@
 //
 
 import Foundation
-import ReactiveSwift
 import CoreData
-import Result
 import JSQDataSourcesKit
 
 class SongListViewModel: NSObject {
     
     let title = "Каталог песен"
 
-    let isLoading = MutableProperty(false)
-
-    var refresh: Action<Void, Void, NoError> {
-        let enabled = isLoading.negate()
-        return Action<Void, Void, NoError>(enabledIf: enabled) { _ in
-            return SignalProducer<Void, NoError> { [weak self] observer, _ in
-                _ = self?.loadSongsSignalProducer(observer: observer).start()
-            }
-        }
-    }
+    let isLoading = Dynamic(false)
     
     func loadData() {
-        _ = loadSongsSignalProducer(observer: nil).start()
+        isLoading.value = true
+        ViewModelManager.shared.loadNewDataWithSuccessHandler({ [weak self] in
+            self?.isLoading.value = false
+        }) { [weak self] (error) in
+            self?.isLoading.value = false
+        }
     }
-    
-    private func loadSongsSignalProducer(observer: Observer<Void, NoError>?) -> SignalProducer<Void, NSError> {
-        let loadSongsSignalProducer = ViewModelManager.shared
-            .loadNewData()
-            .on(starting: { [weak self] in
-                self?.isLoading.value = true
-            }, failed: { (error) in
-                print(error)
-            }, terminated: { [weak self] in
-                self?.isLoading.value = false
-                observer?.sendCompleted()
-            })
-        return loadSongsSignalProducer
-    }
-    
     //MARK: - Data base
     
     fileprivate var _fetchRequest: NSFetchRequest<NSFetchRequestResult>?
